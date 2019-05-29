@@ -16,10 +16,15 @@ var Queue = function() {
     var item = storage[0];
     delete storage[0];
     var index = 0;
+    var obj = {};
     for (var key in storage) {
-      key =index;
-      index++;
+      obj[index] = storage[key];
     }
+    storage = obj;
+    // for (var key in storage) {
+    //   storage[index] = storage[key];
+    //   index++;
+    // }
     return item;
   };
 
