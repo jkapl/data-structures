@@ -7,7 +7,7 @@ var Queue = function() {
 Queue.prototype.enqueue = function (value) {
   var length = Object.keys(this.storage).length;
   this.storage[length] = value;
-}
+};
 
 Queue.prototype.dequeue = function () {
   var item = this.storage['0'];
@@ -18,11 +18,11 @@ Queue.prototype.dequeue = function () {
     obj[index] = this.storage[key];
   }
   this.storage = obj;
-  return item
-}
+  return item;
+};
 
 Queue.prototype.size = function () {
   return Object.keys(this.storage).length;
-}
+};
 
 
