@@ -7,7 +7,7 @@ var Stack = function() {
 };
 
 var stackMethods = {
-    push: function (value) {
+  push: function (value) {
     var length = Object.keys(this.storage).length;
     this.storage[length] = value;
   },
@@ -17,7 +17,6 @@ var stackMethods = {
     var item = this.storage[last - 1];
     delete this.storage[last - 1];
     return item;
-    
   },
 
   size: function () {
