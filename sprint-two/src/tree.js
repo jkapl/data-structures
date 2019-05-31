@@ -15,10 +15,24 @@ treeMethods.addChild = function (value) {
   this.children.push(Tree(value));
 };
 
-treeMethods.contains = function (target) {
+treeMethods.contains = function (target, node) {
+  node = node || this;
+
+  if (node.value === target) {
+    return true;
+  }
+  if (node.children.length === 0) {
+    return false;
+  } else {
+    for (let i = 0; i < node.children.length; i++) {
+      var result = treeMethods.contains(target, node.children[i]);
+      if (result) {
+        return true
+      }
+    }
+  }
+  return result;
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?
