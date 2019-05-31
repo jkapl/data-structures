@@ -26,7 +26,28 @@ var LinkedList = function () {
     }
   };
 
-  list.contains = function (target) {
+  list.contains = function (target, node) {
+    if (!list.head) {
+      return false;
+    }    
+    
+    if (list.head) {
+      if (list.head.value === target) {
+        return true;
+      }
+    }
+
+    node = node || list.head;
+
+    if ((node.next === null) && (node.value !== target )) {
+      return false;
+    }
+    if (node.value === target) {
+      return true;
+    }
+    if (node.next) {
+      return list.contains(target, node.next);
+    }
   };
 
   return list;
