@@ -22,9 +22,11 @@ Graph.prototype.contains = function (node) {
 // Removes a node from the graph.
 Graph.prototype.removeNode = function (node) {
   let toDelete = node;
-  for (var i = 0; i < this.edges[toDelete].length; i++) {
-    let toDeleteIndex = this.edges[this.edges[toDelete][i]].indexOf(toDelete);
-    this.edges[this.edges[toDelete][i]].splice(toDeleteIndex, 1);
+  if (this.edges[toDelete]) {
+    for (var i = 0; i < this.edges[toDelete].length; i++) {
+      let toDeleteIndex = this.edges[this.edges[toDelete][i]].indexOf(toDelete);
+      this.edges[this.edges[toDelete][i]].splice(toDeleteIndex, 1);
+    }
   }
   delete this.nodes[node];
 };
