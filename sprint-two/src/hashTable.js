@@ -10,8 +10,10 @@ HashTable.prototype.insert = function (k, v) {
   if (_.contains(this._storage[index], k)) {
     var indexOfK = this._storage[index].indexOf(k);
     this._storage[index][indexOfK + 1] = v;
-  } else {
+  } if (!this._storage[index]) {
     this._storage[index] = [k, v];
+  } else {
+    this._storage[index].push(k, v);
   }
 };
 
