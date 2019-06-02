@@ -22,8 +22,23 @@ var BinarySearchTree = function (value) {
     }
   }
 
-  obj.contains = function (val) {
+  obj.contains = function (val, node) {
+    node = node || obj;
 
+    if (node.value === val) {
+      return true;
+    }
+
+    if (node.value < val) {
+      if (node.right) {
+        return obj.contains(val, node.right);
+      } else {
+        if (node.left) {
+          return obj.contains(val, node.left);
+        }
+      }
+    }
+    return false;
   }
 
   obj.depthFirstLog = function (cb) {
